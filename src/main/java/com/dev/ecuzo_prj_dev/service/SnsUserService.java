@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface SnsUserService {
     public Optional<SnsUsers> findByEmail(String email);
     public SnsUserDto userSelect();
+
+    public void deleteEmail(String email);
 //    public String searchKakaoUser(String code) throws Exception;
 //    public String getKakaoAccessToken (String code)throws Exception;
 }

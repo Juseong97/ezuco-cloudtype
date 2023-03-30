@@ -40,10 +40,9 @@ public class UserController {
         String userPw=loginRequestDto.getUserPw();
         TokenInfo tokenInfo =userService.login(userId,userPw);
         HttpHeaders headers = new HttpHeaders();
-//        log.info(tokenInfo.getAccessToken());
         headers.set("Authorization",tokenInfo.getGrantType()+" "+tokenInfo.getAccessToken());
         log.info("Authorization : "+tokenInfo.getGrantType()+" "+tokenInfo.getAccessToken());
-//        headers.setLocation(URI.create("http://localhost:3000/Menu/MenuContents"));
+
         return ResponseEntity.ok().headers(headers).body(HttpStatus.OK);
     }
 

@@ -54,6 +54,13 @@ public class SnsUserServiceImpl implements SnsUserService{
         SnsUserDto snsUserDto =snsUsers.get(0).toDto();
         return snsUserDto;
     }
+
+    @Override
+    public void deleteEmail(String email) {
+        Optional<SnsUsers> snsUsers = snsRepository.findByEmail(email);
+        snsRepository.delete(snsUsers.get());
+    }
+
     //    public String searchKakaoUser(String token) throws Exception {
 //        String reqURL = "https://kapi.kakao.com/v2/user/me";
 //        try {

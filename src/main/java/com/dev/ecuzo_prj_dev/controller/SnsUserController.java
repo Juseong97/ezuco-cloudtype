@@ -44,7 +44,7 @@ public class SnsUserController {
 
     @DeleteMapping("snsdel/{email}")
     public String delKakao(@PathVariable String email){
-        snsUserService.findByEmail(email);
+        snsUserService.deleteEmail(email);
         return "Del Complete";
     }
 

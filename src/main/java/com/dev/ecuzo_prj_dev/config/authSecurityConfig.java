@@ -53,16 +53,16 @@ public class authSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                     .authorizeHttpRequests()
-                    .antMatchers("/login","/join","/checkId","/checkNick").permitAll() //로그인,회원가입
-                    .antMatchers("/user/**","/create","/update/**","/userOne").hasAuthority("USER") // USER PAGE 추가
+                    .antMatchers("/login","/join","/checkId","/checkNick","/snsuserInfo","/snsdel").permitAll() //로그인,회원가입
+                    .antMatchers("/user/**","/create","/update/**","/userOne","/order").hasAuthority("USER") // USER PAGE 추가
                     .antMatchers("/admin/**","/order/**").hasAuthority("ADMIN") //ADMIN PAGE 추가
-                .anyRequest().authenticated();
-//                .and()
-//                    .oauth2Login()
-//                    .successHandler(oAuth2SuccessHandler) //JWT 토큰 생성
-//                    .failureHandler(oAuth2FailureHandler)
-//                    .userInfoEndpoint()
-//                    .userService(principalOauth2UserService);
+                .anyRequest().authenticated()
+                .and()
+                    .oauth2Login()
+                    .successHandler(oAuth2SuccessHandler) //JWT 토큰 생성
+                    .failureHandler(oAuth2FailureHandler)
+                    .userInfoEndpoint()
+                    .userService(principalOauth2UserService);
               http    .addFilter(corsFilterConfig.corsFilter())
                       .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         return http.build();

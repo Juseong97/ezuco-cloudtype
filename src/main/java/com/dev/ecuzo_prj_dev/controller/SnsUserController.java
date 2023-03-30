@@ -37,29 +37,18 @@ public class SnsUserController {
         this.service=service;
 
     }
-    @GetMapping("snsUserInfo")
-    public ResponseEntity<?> kakaoProfile(@AuthenticationPrincipal Authentication authentication){
-
-        log.warn(authentication.getName());
-//        String email = oAuth2User.getName();
-        SnsUserDto snsUserDto =null;
-//        log.info("email: "+email);
-//        Optional<SnsUsers> snsUsers =snsUserService.findByEmail(email);
-//        if(snsUsers.isPresent()){
-//            snsUserDto=snsUsers.get().toDto();
-//            return ResponseEntity.ok(snsUserDto);
-//        }
-//        else
-//            return ResponseEntity.ok("정보가 없습니다.");
-        return null;
+    @GetMapping("snsuserInfo")
+    public ResponseEntity<?> kakaoProfile(){
+        return ResponseEntity.ok(snsUserService.userSelect());
     }
 
-    @GetMapping("kakaoinfo")
-    public ResponseEntity<?> kakaoEmail(@RequestParam String code) throws Exception{
-        System.out.println("code = " + code);
-        String email=snsUserService.searchKakaoUser(snsUserService.getKakaoAccessToken(code));
-        return ResponseEntity.ok(email);
+    @DeleteMapping("snsdel/{email}")
+    public String delKakao(@PathVariable String email){
+        snsUserService.findByEmail(email);
+        return "Del Complete";
     }
+
+
 
 //    @GetMapping("/snsUser")
 //    public ResponseEntity<?> kakaoInfo(@AuthenticationPrincipal UserDetails userDetails){

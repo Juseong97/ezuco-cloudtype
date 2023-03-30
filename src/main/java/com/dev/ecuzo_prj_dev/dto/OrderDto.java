@@ -1,6 +1,7 @@
 package com.dev.ecuzo_prj_dev.dto;
 
 import com.dev.ecuzo_prj_dev.entity.Orders;
+import com.dev.ecuzo_prj_dev.entity.SnsUsers;
 import com.dev.ecuzo_prj_dev.entity.TotalSales;
 import com.dev.ecuzo_prj_dev.entity.Users;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -29,6 +30,8 @@ public class OrderDto {
     private LocalDateTime updateAt;
     @JsonIgnore
     private Users users;
+    @JsonIgnore
+    private SnsUsers snsUsers;
 
     public Orders toEntity(){
         Orders orders = Orders.builder()

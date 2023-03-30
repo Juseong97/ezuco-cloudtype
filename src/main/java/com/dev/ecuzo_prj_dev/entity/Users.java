@@ -29,6 +29,7 @@ public class Users {
     private String tableNum;
     @Enumerated(EnumType.STRING)
     private Role roleType;
+    private String sns;
     @CreationTimestamp
     private LocalDateTime createAt;
     @UpdateTimestamp
@@ -49,17 +50,19 @@ public class Users {
                 .tableNum(this.tableNum)
                 .createAt(this.createAt)
                 .orders(this.orders)
+                .sns(this.sns)
                 .updateAt(this.updateAt)
                 .build();
         return userDto;
     }
 
     @Builder
-    public Users(int id, String userId, String userPw, String tableNum, String email, Role roleType, LocalDateTime createAt, LocalDateTime updateAt) {
+    public Users(int id, String userId, String userPw, String sns,String tableNum, Role roleType, LocalDateTime createAt, LocalDateTime updateAt) {
         this.id = id;
         this.userId = userId;
         this.userPw = userPw;
         this.tableNum=tableNum;
+        this.sns=sns;
         this.roleType = roleType;
         this.createAt = createAt;
         this.updateAt = updateAt;

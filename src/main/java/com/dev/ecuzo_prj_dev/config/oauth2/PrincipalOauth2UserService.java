@@ -5,6 +5,7 @@ import com.dev.ecuzo_prj_dev.config.oauth2.provider.OAuth2UserInfo;
 import com.dev.ecuzo_prj_dev.dto.SnsUserDto;
 import com.dev.ecuzo_prj_dev.entity.Role;
 import com.dev.ecuzo_prj_dev.entity.SnsUsers;
+import com.dev.ecuzo_prj_dev.entity.Users;
 import com.dev.ecuzo_prj_dev.jpa.SnsRepository;
 import com.dev.ecuzo_prj_dev.service.SnsUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,12 @@ import java.util.stream.Collectors;
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
     private final SnsUserService snsUserService;
     private final SnsRepository snsRepository;
-    private HttpSession httpSession;
+
     @Autowired
-    public PrincipalOauth2UserService(SnsRepository snsRepository, SnsUserService snsUserService,HttpSession httpSession) {
+    public PrincipalOauth2UserService(SnsRepository snsRepository, SnsUserService snsUserService) {
         this.snsUserService = snsUserService;
         this.snsRepository =snsRepository;
-        this.httpSession= httpSession;
+
     }
 
     //카카오 로부터 받은 userRequest에 대한 후처리 -> 데이터에 넣고 함수 종료시 @AuthenticationPrincipal 어노테이션이 만들어짐
@@ -55,7 +56,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         String provider = oAuth2UserInfo.getProvider();
         String providerId = oAuth2UserInfo.getProviderId();
         String email = oAuth2UserInfo.getEmail();
-        String nickName = oAuth2UserInfo.getName()+"_"+providerId;
+        String nickName = oAuth2UserInfo.getName();
         System.out.println("nickName = " + nickName);
         String imageName = oAuth2UserInfo.getName()+"_img";
         System.out.println("imageName = " + imageName);

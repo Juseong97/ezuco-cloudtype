@@ -105,52 +105,6 @@ public class JwtTokenProvider {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//    //JWT 토큰에서 인증 정보 조회
-//    public Authentication getAuthentication(String token){
-//        System.out.println("토큰 인증 정보 조회");
-//        PrincipalUserDetails userDetails = (PrincipalUserDetails) userDetailsService.loadUserByUsername(this.getUserName(token));
-//        log.info(" Username: "+userDetails.getUsername());
-//        System.out.println(userDetails.getUsername());
-//        return new UsernamePasswordAuthenticationToken(userDetails,"",userDetails.getAuthorities());
-//    }
-//
-//    //토큰에서 회원 정보 추출
-//    public String getUserName(String token){
-//        System.out.println("getUSerName 실행");
-//        log.info("유저 정보 받기: "+Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject());
-//        System.out.println("getUSerName 종료");
-//        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
-//    }
-//
-//    //Request의 Header에서 token 값을 가져옵니다.
-//    public String resolveToken(HttpServletRequest request){
-//        return request.getHeader("ACCESS-TOKEN");
-//    }
-//
-//    //토큰의 유효성 + 만료일자 확인
-//    public boolean validateToken(String jwtToken){
-//        System.out.println("토큰 유효성 체크 실행");
-//        try {
-//            Jws<Claims> claims= Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(jwtToken);
-//            return !claims.getBody().getExpiration().before(new Date());
-//        }catch (Exception e){
-//            return false;
-//        }
-//    }
-
-
 }
 
 

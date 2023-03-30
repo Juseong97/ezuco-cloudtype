@@ -19,6 +19,7 @@ public class UserDto {
     private String userPw;
     private String tableNum;
     private Role roleType;
+    private String sns;
     private List<Orders> orders;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
@@ -37,6 +38,7 @@ public class UserDto {
                 .userId(this.userId)
                 .userPw(this.userPw)
                 .tableNum(this.tableNum)
+                .sns(this.sns)
                 .roleType(this.roleType)
                 .createAt(this.createAt)
                 .updateAt(this.updateAt)
@@ -45,11 +47,12 @@ public class UserDto {
     }
 
     @Builder
-    public UserDto(int id, String userId, String tableNum, String email, Role roleType, List<Orders> orders, LocalDateTime createAt, LocalDateTime updateAt) {
+    public UserDto(int id, String userId, String tableNum, String sns, Role roleType, List<Orders> orders, LocalDateTime createAt, LocalDateTime updateAt) {
         this.id = id;
         this.userId = userId;
         this.tableNum=tableNum;
         this.roleType = roleType;
+        this.sns=sns;
         this.orders=orders;
         this.createAt = createAt;
         this.updateAt = updateAt;

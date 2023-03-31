@@ -20,6 +20,6 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
             response.setCharacterEncoding("UTF-8");
             String message="403";
             response.getWriter().println(message);
-//           response.sendRedirect("http://localhost:3000/");//나중에 메인페이지로 보낼꺼임
+           response.sendRedirect("http://localhsot:3000/jwtexpired");//나중에 메인페이지로 보낼꺼임
     }
 }

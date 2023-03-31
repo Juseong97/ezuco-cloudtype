@@ -63,7 +63,8 @@ public class authSecurityConfig {
                     .failureHandler(oAuth2FailureHandler)
                     .userInfoEndpoint()
                     .userService(principalOauth2UserService);
-              http    .addFilter(corsFilterConfig.corsFilter())
+              http
+                      .addFilter(corsFilterConfig.corsFilter())
                       .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

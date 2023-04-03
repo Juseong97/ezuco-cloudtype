@@ -39,7 +39,7 @@ spring:
             client_id: 1cfc5abbc1e0dd24af7409e5284da67a
             authorization-grant-type: authorization_code
             client-authentication-method: POST
-            redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
+            redirect-uri: "login/oauth2/code/{registrationId}"
             #registrationId는 oauth2에서 제공하는 소셜 로그인 이름별 ID를 자동으로 맵핑 해줌  ==kakao
             scope:
             - profile_nickname

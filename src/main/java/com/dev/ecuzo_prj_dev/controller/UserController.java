@@ -82,7 +82,7 @@ public class UserController {
         return "UPDATE USER COMPLETE!!";
     }
 
-    @DeleteMapping("user/{id}")
+    @DeleteMapping("deluser/{id}")
     public String userDelete(@PathVariable int id){
         userService.userDelete(id);
         return "DELETE USERS COMPLETE";

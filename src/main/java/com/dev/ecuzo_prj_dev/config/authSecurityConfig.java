@@ -55,7 +55,7 @@ public class authSecurityConfig {
                     .authorizeHttpRequests()
                     .antMatchers("/login","/join","/checkId","/checkNick","/snsuserInfo","/snsdel/**","deluser/**").permitAll() //로그인,회원가입
                     .antMatchers("/user/**","/create","/update/**","/userOne","/order").hasAuthority("USER") // USER PAGE 추가
-                    .antMatchers("/admin/**","/order/**").hasAuthority("ADMIN") //ADMIN PAGE 추가
+                    .antMatchers("/admin/**","/order/**","delete/**").hasAuthority("ADMIN") //ADMIN PAGE 추가
                 .anyRequest().authenticated()
                 .and()
                     .oauth2Login()

@@ -54,7 +54,7 @@ public class OrderController {
         return "UPDATE ORDER COMPLETE";
     }
 
-    @DeleteMapping("order/{tableNum}")
+    @DeleteMapping("delete/{tableNum}")
     public String orderDelete(@PathVariable String tableNum){
         System.out.println("tableNum = " + tableNum);
         orderService.orderDelete(tableNum);

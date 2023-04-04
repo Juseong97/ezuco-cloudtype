@@ -67,7 +67,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 ////         헤더에 token 정보들 담기
 //        response.setHeader("Authorization",grantType+" "+accessToken);
 //        log.info("HEADER 담긴 정보들: " +response.getHeader("Authorization")+" ||");
-        response.sendRedirect("https://web-ecuzo-react-cloud-a4y62alg082qgw.sel3.cloudtype.app/kakao/login");
+        response.sendRedirect("https://web-ecuzo-react-cloud-108dypx2ale6e8i6k.sel3.cloudtype.app/kakao/login");
     }
 
 
